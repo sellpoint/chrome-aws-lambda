@@ -22,4 +22,5 @@ export const puppeteer: {
   errors: any;
   executablePath(): string;
   launch(options?: LaunchOptions): Promise<Browser>;
+  use(): string;
 };

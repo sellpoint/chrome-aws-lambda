@@ -188,15 +188,12 @@ class Chromium {
       require(`${__dirname}/puppeteer/lib/${overload}`);
     }
 
-    try {
-      return require('puppeteer');
-    } catch (error) {
-      if (error.code !== 'MODULE_NOT_FOUND') {
-        throw error;
-      }
+    const puppeteer = require('puppeteer-extra');
 
-      return require('puppeteer-core');
-    }
+    const pluginStealth = require("puppeteer-extra-plugin-stealth");
+    puppeteer.use(pluginStealth());
+
+    return puppeteer;
   }
 }
 
